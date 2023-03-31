@@ -4,10 +4,10 @@ import UI.Base;
 import UI.Objects.DiskPage;
 import UI.Objects.FilePage;
 import UI.Objects.YandexLanding;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static UI.Helper.Data.*;
+import static org.testng.Assert.*;
 
 
 public class Disk extends Base {
@@ -25,7 +25,7 @@ public class Disk extends Base {
         diskPage.createFolder();
         diskPage.copyFileInToTheFolder();
         diskPage.openElement(folderName);
-        Assert.assertEquals(
+        assertEquals(
                 diskPage.chooseElementInList(fileName).getText(),
                 "Файл для\n" +
                 "копир…я.docx");
