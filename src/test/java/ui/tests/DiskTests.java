@@ -1,23 +1,24 @@
-package UI.Tests;
+package ui.tests;
 
-import UI.Base;
-import UI.Objects.DiskPage;
-import UI.Objects.FilePage;
-import UI.Objects.YandexLanding;
+import ui.Base;
+import ui.objects.DiskPage;
+import ui.objects.FilePage;
+import ui.objects.YandexLanding;
 import org.testng.annotations.Test;
 
-import static UI.Helper.Data.*;
-import static org.testng.Assert.*;
+import static ui.helpers.Data.fileName;
+import static ui.helpers.Data.folderName;
+import static org.testng.Assert.assertEquals;
 
 
-public class Disk extends Base {
-    DiskPage diskPage = new DiskPage(driver);
-    FilePage filePage = new FilePage(driver);
+public class DiskTests extends Base {
+    DiskPage diskPage = new DiskPage();
+    FilePage filePage = new FilePage();
 
     @Test(description = "Копирование файла в созданную папку")
     void copyFileInToNewPackage() {
         driver.get("http://ya.ru");
-        YandexLanding yandexLanding = new YandexLanding(driver);
+        YandexLanding yandexLanding = new YandexLanding();
         yandexLanding
                 .goToLoginPage()
                 .loginWithCurrentUser();
@@ -28,7 +29,7 @@ public class Disk extends Base {
         assertEquals(
                 diskPage.chooseElementInList(fileName).getText(),
                 "Файл для\n" +
-                "копир…я.docx");
+                        "копир…я.docx");
         driver.findElement(diskPage.leftColumnSelectFile).click();
         diskPage.deleteFolder();
         diskPage.emptyTrash();
@@ -38,7 +39,7 @@ public class Disk extends Base {
     @Test(description = "Проверка текста в загруженном файле")
     void checkTextInLoadedFile() {
         driver.get("http://ya.ru");
-        YandexLanding yandexLanding = new YandexLanding(driver);
+        YandexLanding yandexLanding = new YandexLanding();
         yandexLanding
                 .goToLoginPage()
                 .loginWithCurrentUser();

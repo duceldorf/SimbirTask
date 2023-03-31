@@ -1,4 +1,4 @@
-package UI.Objects;
+package ui.objects;
 
 import org.openqa.selenium.By;
 

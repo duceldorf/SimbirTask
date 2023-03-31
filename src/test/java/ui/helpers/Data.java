@@ -1,4 +1,4 @@
-package UI.Helper;
+package ui.helpers;
 
 public class Data {
 

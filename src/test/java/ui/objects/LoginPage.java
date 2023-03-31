@@ -1,15 +1,14 @@
-package UI.Objects;
+package ui.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
-    protected WebDriver driver;
-
     private final By loginWithMail = By.xpath("//button[@data-type='login']");
     private final By loginField = By.id("passp-field-login");
     private final By loginButton = By.id("passp:sign-in");
     private final By passwordField = By.id("passp-field-passwd");
+    protected WebDriver driver;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
